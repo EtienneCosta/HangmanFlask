@@ -1,0 +1,32 @@
+body{
+    background-color: black;
+    color: black;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.jumbotron{
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+h1 {
+    text-align: center;
+    margin-left: 100px;
+}
+
+input{
+    margin-left: 40%;
+}
+
+
+p {
+    text-align: center;
+}
+
+
+.lifes{
+    width: 30px;
+    height: 30px;
+}

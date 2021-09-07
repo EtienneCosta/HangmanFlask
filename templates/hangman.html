@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HangMan</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='hangman.ico') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="../static/style.css">
+
+</head>
+
+<body > 
+
+    <div class="jumbotron" >
+        <p>Lifes:
+            {%for i in range(lifes)%}
+                <img class="lifes" src="{{ url_for('static', filename='hearth.png') }}" alt="hearth image">
+            {%endfor%}       
+        </p>
+        <hr class="my-4">
+        <p>Inserted Letters : </p>
+        <p>{{' '.join(inserted_letters)}}</p>
+        <hr class="my-4">
+        <p>Current Word : </p>
+        <pre><p>{{' '.join(current_word)}}</p></pre>
+        <hr class="my-4">
+        <p>Feedback : </p>
+        <pre><p>{{feedback}}</p></pre>
+        <hr class="my-4">
+        <p>Guess a letter : </p>
+        <form  action="/hangman" method="POST">
+            <input type="text" maxlength="1" pattern="[A-Za-z]" onkeypress="pressedLetter(event)"  name="letter" >
+        </form>        
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-dark btn-lg" href="/" role="button">Exit </a>
+          </p>
+      </div>
+
+
+<script type="text/javascript">
+        function pressedLetter(event) {
+            return event['key']
+        }
+
+</script>
+        
+
+
+</body>
+
+</html>
